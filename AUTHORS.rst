@@ -134,3 +134,5 @@ Patches and Suggestions
 - Flavio Curella
 - David Pursehouse <david.pursehouse@gmail.com> @dpursehouse
 - Jon Parise
+- Sophie Tual <soph.tual@gmail.com> @gurrlzonbikes
+
