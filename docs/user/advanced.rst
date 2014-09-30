@@ -111,10 +111,7 @@ Lorsque vous recevez un objet :class:`Response <requests.models.Response>` retou
                   )
     print(resp.status_code)
 
-Since you are not doing anything special with the ``Request`` object, you
-prepare it immediately and modified the ``PreparedRequest`` object. You then
-send that with the other parameters you would have sent to ``requests.*`` or
-``Sesssion.*``.
+Comme on ne fait rien de spécial avec l’objet ``Request``, on le prépare et on modifie l’objet ``PreparedRequest``. On l’envoie ensuite avec les paramètres que l’on aurait passé à  ``requests.*`` ou ``Sesssion.*``.
 
 Verifications certificats SSL
 -----------------------------
@@ -132,14 +129,14 @@ erreur. Parfait. Par contre, GitHub en a un::
 
 Vous pouvez aussi passer au paramètre ``verify`` le chemin vers un fichier ``CA_BUNDLE`` pour les certificats privés. Vous pouvez également définir la variable d'environnement ``REQUESTS_CA_BUNDLE``.
 
-Requests can also ignore verifying the SSL certificate if you set ``verify`` to False.
+Requests peut aussi ignorer la vérification SSL si l’on attribue False à ``verify``.
 
 ::
 
     >>> requests.get('https://kennethreitz.com', verify=False)
     <Response [200]>
 
-By default, ``verify`` is set to True. Option ``verify`` only applies to host certs.
+Par défaut, ``verify`` a pour valeur True. L’option ``verify``s’applique seulement aux certificats hôtes.
 
 You can also specify a local cert to use as client side certificate, as a single file (containing the private key and the certificate) or as a tuple of both file's path::
 
