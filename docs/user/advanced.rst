@@ -61,7 +61,7 @@ vous construisez un object ``Request`` qui va être envoyé au serveur pour réc
 ou interroger des ressources. En second, un object ``Response`` est généré une
 fois que ``requests`` reçoit une réponse du serveur. L'objet ``Response`` contient
 toutes les informations retournées par le serveur mais aussi l'objet ``Request``
-que vous avez crée initialement. Voici une requête simple pour obtenir des
+que vous avez créé initialement. Voici une requête simple pour obtenir des
 informations depuis les serveurs Wikipedia::
 
     >>> r = requests.get('http://en.wikipedia.org/wiki/Monty_Python')
@@ -85,14 +85,10 @@ serveur, nous accédons simplement à la requête, et aux en-têtes de la requê
     {'Accept-Encoding': 'identity, deflate, compress, gzip',
     'Accept': '*/*', 'User-Agent': 'python-requests/1.2.0'}
 
-Prepared Requests
+Requêtes préparées
 -----------------
 
-Whenever you receive a :class:`Response <requests.models.Response>` object
-from an API call or a Session call, the ``request`` attribute is actually the
-``PreparedRequest`` that was used. In some cases you may wish to do some extra
-work to the body or headers (or anything else really) before sending a
-request. The simple recipe for this is the following::
+Lorsque vous recevez un objet :class:`Response <requests.models.Response>` retourné par un appel à une API ou une Session, l’attribut ``request`` de cet objet est en réalité le ``PreparedRequest`` utilisé. Dans certains cas, il peut arriver de vouloir ajouter ou modifier le body, les en-têtes ou autre avant d’envoyer une requête. La recette est la suivante::
 
     from requests import Request, Session
 
