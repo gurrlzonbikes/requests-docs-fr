@@ -136,14 +136,14 @@ Requests peut aussi ignorer la vérification SSL si l’on attribue False à ``v
     >>> requests.get('https://kennethreitz.com', verify=False)
     <Response [200]>
 
-Par défaut, ``verify`` a pour valeur True. L’option ``verify``s’applique seulement aux certificats hôtes.
+Par défaut, ``verify`` a pour valeur True. L’option ``verify`` s’applique seulement aux certificats hôtes.
 
-Vous pouvez également spécifier un certificat local à utiliser comme certificat coté client, dans un fichier unique (contenant la clé privée et le certificat) ou bien dans un tuple contenant le chemin des deux fichiers::
+Vous pouvez également choisir un certificat local à utiliser comme certificat coté client, dans un fichier unique (contenant la clé privée et le certificat) ou bien dans un tuple contenant le chemin des deux fichiers::
 
     >>> requests.get('https://kennethreitz.com', cert=('/path/server.crt', '/path/key'))
     <Response [200]>
 
-If you specify a wrong path or an invalid cert::
+Si le chemin est mauvais ou le certificat invalide::
 
     >>> requests.get('https://kennethreitz.com', cert='/wrong_path/server.pem')
     SSLError: [Errno 336265225] _ssl.c:347: error:140B0009:SSL routines:SSL_CTX_use_PrivateKey_file:PEM lib
@@ -329,7 +329,7 @@ To use HTTP Basic Auth with your proxy, use the `http://user:password@host/` syn
         "http": "http://user:pass@10.10.1.10:3128/",
     }
 
-Compliance
+Respect des normes
 ----------
 
 Requests is intended to be compliant with all relevant specifications and
