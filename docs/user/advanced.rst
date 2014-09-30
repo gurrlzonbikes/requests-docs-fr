@@ -45,7 +45,7 @@ surchargent les paramètres de session.
 
     Parfois vous voudrez supprimer des paramètres de session lors de vos
     requêtes. Pour cela, il suffit d'envoyer lors de l'appel de la méthode
-    un dictionnaire dont les clés seraient les paramètres a supprimer et les
+    un dictionnaire dont les clés seraient les paramètres à supprimer et les
     valeurs seraient ``None``. Ces paramètres seront alors automatiquement
     omis.
 
@@ -58,10 +58,10 @@ Objets Request et Response
 
 Lorsqu'un appel à requests.* est effectué, vous faites deux choses. Premièrement,
 vous construisez un object ``Request`` qui va être envoyé au serveur pour récupérer
-ou intérroger des ressources. En second, un object ``Response`` est généré une
-fois que ``requests`` reçoit une réponse du servuer. L'objet ``Response`` contient
-toutes les informations retournées par le serveur mais aussi l'object ``Request``
-que vous avz crée initialement. Voici une requête simple pour obtenir des
+ou interroger des ressources. En second, un object ``Response`` est généré une
+fois que ``requests`` reçoit une réponse du serveur. L'objet ``Response`` contient
+toutes les informations retournées par le serveur mais aussi l'objet ``Request``
+que vous avez crée initialement. Voici une requête simple pour obtenir des
 informations depuis les serveurs Wikipedia::
 
     >>> r = requests.get('http://en.wikipedia.org/wiki/Monty_Python')
