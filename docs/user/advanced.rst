@@ -138,7 +138,7 @@ Requests peut aussi ignorer la vérification SSL si l’on attribue False à ``v
 
 Par défaut, ``verify`` a pour valeur True. L’option ``verify``s’applique seulement aux certificats hôtes.
 
-You can also specify a local cert to use as client side certificate, as a single file (containing the private key and the certificate) or as a tuple of both file's path::
+Vous pouvez également spécifier un certificat local à utiliser comme certificat coté client, dans un fichier unique (contenant la clé privée et le certificat) ou bien dans un tuple contenant le chemin des deux fichiers::
 
     >>> requests.get('https://kennethreitz.com', cert=('/path/server.crt', '/path/key'))
     <Response [200]>
