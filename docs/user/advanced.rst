@@ -138,7 +138,7 @@ Requests peut aussi ignorer la vérification SSL si l’on attribue False à ``v
 
 Par défaut, ``verify`` a pour valeur True. L’option ``verify`` s’applique seulement aux certificats hôtes.
 
-Vous pouvez également choisir un certificat local à utiliser comme certificat coté client, dans un fichier unique (contenant la clé privée et le certificat) ou bien dans un tuple contenant le chemin des deux fichiers::
+Vous pouvez également indiquer le chemin d'un certificat local à utiliser comme certificat coté client, dans un fichier unique (contenant la clé privée et le certificat) ou bien dans un tuple contenant le chemin des deux fichiers::
 
     >>> requests.get('https://kennethreitz.com', cert=('/path/server.crt', '/path/key'))
     <Response [200]>
@@ -332,28 +332,15 @@ To use HTTP Basic Auth with your proxy, use the `http://user:password@host/` syn
 Respect des normes
 ----------
 
-Requests is intended to be compliant with all relevant specifications and
-RFCs where that compliance will not cause difficulties for users. This
-attention to the specification can lead to some behaviour that may seem
-unusual to those not familiar with the relevant specification.
+Requests se veut conforme avec les specifications et RFC en vigueur tant que ce respect des normes n'entraine pas de difficultés pour ses usagers.
+Occasionellement, cette adhésion aux normes s'accompagne de comportements qui peuvent sembler étrange aux non-initiés.
 
-Encodings
+Encodage
 ^^^^^^^^^
 
-When you receive a response, Requests makes a guess at the encoding to use for
-decoding the response when you call the ``Response.text`` method. Requests
-will first check for an encoding in the HTTP header, and if none is present,
-will use `charade <http://pypi.python.org/pypi/charade>`_ to attempt to guess
-the encoding.
+Lorsque vous recevez une réponse, Requests devine quel codage utiliser pour décoder la réponse quand vous invoquez la méthode ``Response.text``. Requests va d'abord aller chercher un codage du coté de l'en-tete HTTP, le cas échéant, il utilisera `charade <http://pypi.python.org/pypi/charade>`_ pour tenter de deviner quel codage utiliser.
 
-The only time Requests will not do this is if no explicit charset is present
-in the HTTP headers **and** the ``Content-Type`` header contains ``text``. In
-this situation,
-`RFC 2616 <http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.7.1>`_
-specifies that the default charset must be ``ISO-8859-1``. Requests follows
-the specification in this case. If you require a different encoding, you can
-manually set the ``Response.encoding`` property, or use the raw
-``Response.content``.
+Il existe une exception à ce comportement :  dans le cas ou aucun charset n'a été trouvé dans les en-tetes **et** que l'en-tete ``Content-Type`` contient ``text``. Dans ce cas, le `RFC 2616 <http://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.7.1>`_ stipule que le charset par défaut est ``ISO-8859-1``. Requests suit les spécifications dans ce cas. Si vous indiquez un encodage différent, vous pouvez régler manuellement la propriété ``Response.encoding``, ou bien utiliser le contenu brut de ``Response.content``.
 
 HTTP Verbs
 ----------
